@@ -4,6 +4,12 @@ from random import randint, choice, shuffle
 import pyperclip
 import json
 
+# ---------------------------------- COLORS ------------------------------------- #
+BLACK = "#1B1A17"
+GRAY = "#73777B"
+ORANGE = "#D4483B"
+WHITE = "#F1EEE9"
+
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
            'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
@@ -79,37 +85,37 @@ def find_password():
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.title("Password Manager")
-window.config(padx=20, pady=20)
+window.config(padx=20, pady=20, bg=BLACK)
 
-canvas = Canvas(width=200, height=200)
+canvas = Canvas(width=200, height=200, bg=BLACK, highlightthickness=0)
 
 image = PhotoImage(file="logo.png")
 canvas.create_image(100, 100, image=image)
 canvas.grid(column=1, row=0)
 
 # Labels
-website_label = Label(text="Website:")
+website_label = Label(text="Website:", bg=BLACK, fg=WHITE)
 website_label.grid(column=0, row=1)
-email_label = Label(text="Email/Username:")
+email_label = Label(text="Email/Username:", bg=BLACK, fg=WHITE)
 email_label.grid(column=0, row=2)
-password_label = Label(text="Password:")
+password_label = Label(text="Password:", bg=BLACK, fg=WHITE)
 password_label.grid(column=0, row=3)
 
 # Entries
-website_input = Entry(width=21)
+website_input = Entry(width=21, bg=GRAY)
 website_input.grid(column=1, row=1, sticky="EW")
 website_input.focus()
-email_input = Entry(width=35)
+email_input = Entry(width=35, bg=GRAY)
 email_input.grid(column=1, row=2, columnspan=2, sticky="EW")
-password_input = Entry(width=21)
+password_input = Entry(width=21, bg=GRAY)
 password_input.grid(column=1, row=3, sticky="EW")
 
 # Buttons
-generate_pass = Button(text="Generate Password", command=generate_password)
+generate_pass = Button(text="Generate Password", command=generate_password, bg=BLACK, fg=WHITE)
 generate_pass.grid(column=2, row=3, sticky="EW")
-add_button = Button(text="Add", width=36, command=save_password)
+add_button = Button(text="Add", width=36, command=save_password, bg=BLACK, fg=WHITE)
 add_button.grid(column=1, row=4, columnspan=2, sticky="EW")
-search_button = Button(text="Search", command=find_password)
+search_button = Button(text="Search", command=find_password, bg=BLACK, fg=WHITE)
 search_button.grid(column=2, row=1, sticky="EW")
 
 window.mainloop()
